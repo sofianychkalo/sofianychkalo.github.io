@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofia Nychkalo - Medical Expertise in Aesthetic Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: linear-gradient(135deg, #f8f6f3 0%, #ffffff 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(248, 246, 243, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad" cx="50%" cy="50%"><stop offset="0%" style="stop-color:%23f0ede8;stop-opacity:0.3"/><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0.1"/></radialGradient></defs><circle cx="500" cy="500" r="300" fill="url(%23grad)"/></svg>') no-repeat center;
+            background-size: cover;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #8b7355;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portrait {
+            width: 350px;
+            height: 450px;
+            background: linear-gradient(145deg, #d4b896, #f0ede8);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(139, 115, 85, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portrait::before {
+            content: 'Professional Portrait';
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #8b7355;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: #ffffff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f8f6f3, #e8e2db);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+        }
+
+        .about-image::before {
+            content: 'Clinical Excellence';
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #8b7355;
+            font-style: italic;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #fafafa 0%, #f0ede8 100%);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 4rem;
+            font-weight: 600;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .experience-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .experience-list {
+            list-style: none;
+        }
+
+        .experience-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .experience-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Why Choose Me Section */
+        .why-choose {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b7355, #d4b896);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 30px rgba(139, 115, 85, 0.2);
+        }
+
+        .feature-icon::before {
+            content: '✓';
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Languages Section */
+        .languages {
+            padding: 80px 0;
+            background: #f8f6f3;
+            text-align: center;
+        }
+
+        .languages h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+        }
+
+        .language-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .language-badge {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            font-weight: 500;
+            color: #555;
+            transition: transform 0.2s ease;
+        }
+
+        .language-badge:hover {
+            transform: translateY(-3px);
+        }
+
+        .language-badge.native {
+            background: linear-gradient(135deg, #8b7355, #d4b896);
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-invitation {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 30px;
+            background: #f8f6f3;
+            border-radius: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            background: #8b7355;
+            border-radius: 50%;
+        }
+
+        .contact-text {
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .portrait {
+                width: 280px;
+                height: 350px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .language-badges {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Sofia Nychkalo</h1>
+                    <div class="hero-subtitle">A Modern CV for Modern Aesthetic Care</div>
+                    <p class="hero-description">
+                        Beyond traditional resumes — this is how medical expertise translates into exceptional 
+                        aesthetic treatments. Precision, care, and genuine connection with every client in Amsterdam.
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <div class="portrait"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image"></div>
+                <div class="about-text">
+                    <h2>Why BemEstar</h2>
+                    <p>
+                        I am deeply inspired by BemEstar's approach to aesthetic care under international female leadership. 
+                        The clinic's commitment to combining medical excellence with personalized treatment aligns perfectly 
+                        with my background as an MD specializing in dermatological procedures.
+                    </p>
+                    <p>
+                        Having completed my dermatology residency in Ukraine and gained hands-on experience with various 
+                        aesthetic treatments, I'm excited by the opportunity to contribute to a multilingual team that 
+                        serves Amsterdam's diverse community with the same dedication to quality I've always prioritized.
+                    </p>
+                    <p>
+                        The variety of advanced treatments offered at BemEstar represents exactly the kind of 
+                        comprehensive aesthetic care I'm passionate about delivering with medical precision and genuine care.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+        <div class="container">
+            <h2 class="section-title">Treatment Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Hair Loss Treatments</h3>
+                    <ul class="experience-list">
+                        <li>Mesotherapy for hair restoration</li>
+                        <li>Plasmotherapy (PRP) procedures</li>
+                        <li>Scalp condition assessment and treatment planning</li>
+                        <li>Patient consultation and follow-up care</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>IPL & Light Treatments</h3>
+                    <ul class="experience-list">
+                        <li>IPL for age spots and sun damage</li>
+                        <li>Rosacea treatment protocols</li>
+                        <li>Skin tone improvement procedures</li>
+                        <li>Pre and post-treatment care management</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Advanced Diagnostics</h3>
+                    <ul class="experience-list">
+                        <li>FotoFinder PASIscan operation</li>
+                        <li>Skin and hair condition analysis</li>
+                        <li>Digital documentation and tracking</li>
+                        <li>Treatment progress monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Minor Surgical Procedures</h3>
+                    <ul class="experience-list">
+                        <li>Radiowave removal of nevi</li>
+                        <li>Papilloma removal procedures</li>
+                        <li>Seborrheic keratosis treatment</li>
+                        <li>Wound care and healing monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">How International Experience Enhances Aesthetic Care</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Deep Medical Foundation</h3>
+                    <p>
+                        As an MD with dermatology residency experience, I bring comprehensive understanding 
+                        of skin physiology, treatment mechanisms, and potential complications to every procedure.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Multilingual Patient Care</h3>
+                    <p>
+                        Fluent in English and Ukrainian, with growing Dutch proficiency, I can connect 
+                        with Amsterdam's diverse clientele and ensure clear communication throughout treatment.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Client Confidence Through Education</h3>
+                    <p>
+                        My medical background allows me to thoroughly explain procedures, discuss expected outcomes, 
+                        and emphasize proper aftercare, building genuine trust that leads to lasting client relationships.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Global Healthcare Perspective</h3>
+                    <p>
+                        Experience across Ukraine, Poland, and Tanzania has shaped my adaptability and 
+                        client-focused approach, ensuring every BemEstar client receives empathetic care 
+                        tailored to their unique needs and cultural background.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages">
+        <div class="container">
+            <h2>Languages</h2>
+            <div class="language-badges">
+                <div class="language-badge native">English - Native Level</div>
+                <div class="language-badge native">Ukrainian - Native</div>
+                <div class="language-badge">Dutch - B1 (Improving)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p class="contact-invitation">
+                Based in Amsterdam and ready to visit BemEstar for a personal introduction. 
+                I would be honored to discuss how my medical background can contribute to your team.
+            </p>
+            <div class="contact-details">
+                <a href="mailto:sofia.nychkalo@gmail.com" class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span class="contact-text">sofia.nychkalo@gmail.com</span>
+                </a>
+                <a href="tel:+31626627993" class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span class="contact-text">+31 626 627 993</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
